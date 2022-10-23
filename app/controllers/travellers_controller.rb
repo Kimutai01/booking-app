@@ -5,18 +5,18 @@ class TravellersController < ApplicationController
   # GET buses/1/travellers
   def index
     @travellers = @bus.travellers.where(user_id: current_user.id)
+    @bus=Bus.find(params[:bus_id])
   end
 
   # GET buses/1/travellers/1
   def show
+
   end
 
   # GET buses/1/travellers/new
   def new
     @traveller = @bus.travellers.build
     @traveller.user_id = current_user.id
-
-    redirect_to bus_travellers_url(@bus)
   end
 
   # GET buses/1/travellers/1/edit
@@ -28,7 +28,7 @@ class TravellersController < ApplicationController
     @traveller = @bus.travellers.build(traveller_params)
     @traveller.user_id = current_user.id
     if @traveller.save
-      redirect_to([@traveller.bus, @traveller], notice: 'Traveller was successfully created.')
+      redirect_to buses_path, notice: 'Traveller was successfully created.'
     else
       render action: 'new'
     end
