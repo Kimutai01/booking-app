@@ -2,14 +2,9 @@
 
 <h1 class='text-center'>Buses</h1>
 
-<div class='buses-card'>
+<div class="row row-cols-1 row-cols-md-3 g-4">
   <% @buses.each do |bus| %>
-  <div id="buses" class='card'>
     <%= render bus %>
-    <p>
-      <%= link_to "Show travellers", bus_travellers_path(bus) %>
-    </p>
-    </div>
   <% end %>
 </div>
 

@@ -1,37 +1,19 @@
-<div id="<%= dom_id bus %>">
-<%= image_tag bus.photo, style: "width: 100px" %>
-  <p>
-    <strong>Registration:</strong>
-    <%= bus.registration %>
-  </p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= bus.name %>
-  </p>
-  <p>
-    <strong>Capacity:</strong>
-    <%= bus.capacity %>
-  </p>
 
-  <p>
-    <strong>From:</strong>
-    <%= bus.from %>
-  </p>
+<div class="col">
+    <div class="card h-100">
+      <%= image_tag bus.photo, :class => "card-img-top" %>
+      <div class="card-body">
+        <h5 class="card-title"><%= bus.name %></h5>
+        <p class="card-text"><strong>Registration: </strong><%= bus.registration %></p>
+        <p class="card-text"><strong>Capacity: </strong><%= bus.capacity %></p>
+        <p class="card-text"><strong>From: </strong><%= bus.from %></p>
+        <p class="card-text"><strong>To: </strong><%= bus.to %></p>
+        <p class="card-text"><strong>Departing time: </strong><%= bus.departing_time.strftime("%H:%M %p") %></p>
+        <p class="card-text"><strong>Departure date: </strong><%= bus.date %></p>
+        <p>
+      <%= link_to "bookings", bus_travellers_path(bus), :class => "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
 
-  <p>
-    <strong>To:</strong>
-    <%= bus.to %>
-  </p>
-
-  <p>
-    <strong>Departing time:</strong>
-    <%= bus.departing_time.strftime("%H:%M %p") %>
-  </p>
-
-  <p>
-    <strong>Date:</strong>
-    <%= bus.date %>
-  </p>
-
-</div>
