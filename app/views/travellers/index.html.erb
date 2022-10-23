@@ -1,35 +1,39 @@
-<h1>Listing travellers</h1>
-
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Phone number</th>
-    <th>Bus</th>
-    <th>User</th>
-    <th>Number of seats</th>
-    <th></th>
-    <th></th>
-  </tr>
-
-
+<h1 class='text-center'>My bookings</h1>
 <% @travellers.each do |traveller| %>
-<%= traveller.bus.registration%>
-  <tr>
-    <td><%= traveller.name %></td>
-    <td><%= traveller.phone_number %></td>
-    <td><%= traveller.bus %></td>
-    <td><%= traveller.user %></td>
-    <td><%= traveller.number_of_seats %></td>
+<div class="container py-3">
+  <!-- Card Start -->
+  <div class="card">
+    <div class="row ">
 
-    <td><%= link_to 'Show', [traveller.bus, traveller] %></td>
-    <td><%= link_to 'Edit', edit_bus_traveller_path(traveller.bus, traveller) %></td>
-    <td><%= button_to 'Destroy', [traveller.bus, traveller], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+      <div class="col-md-7 px-3">
+        <div class="card-block px-6">
+          <h4 class="card-title"><%= traveller.bus.name %></h4>
+          <p class="card-text">
+            <strong>Registration: </strong><%= traveller.bus.registration %>
+          </p>
+          <p class="card-text"> <strong>From: </strong><%= traveller.bus.from %></p>
+          <p class="card-text"> <strong>To: </strong><%= traveller.bus.to %></p>
+          <p class="card-text"> <strong>Departing time: </strong><%= traveller.bus.departing_time.strftime("%H:%M %p") %></p>
+          <p class="card-text"> <strong>Departure date: </strong><%= traveller.bus.date %></p>
+          <p class="card-text"> <% hours = (traveller.bus.departing_time.strftime("%H").to_i - Time.now.strftime("%H").to_i) %>
+            <strong>Time left: </strong><%= hours %> hours
+          </p>
+          <p class="card-text">  <strong>traveller name: </strong><%= traveller.name %></p>
+          <p class="card-text"> <strong>traveller phone number: </strong><%= traveller.phone_number %></p>
+         <%=button_to 'remove booking', [traveller.bus, traveller], method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+        </div>
+      </div>
+      <!--Side Image-->
+      <div class="col-md-5 my-5">
+        <%= image_tag traveller.bus.photo, :class => "img-fluid" %>
+        </div>
+    
+    </div>
+  </div>
+  <%= current_user.booked == true ? "You have already booked a seat" : link_to('Book a seat', new_bus_traveller_path) %>
+
+
+  <!-- End of card -->
+
+</div>
 <% end %>
-</table>
-
-<br />
-
-
-<%= current_user.booked == true ? "You have already booked a seat" : link_to('Book a seat', new_bus_traveller_path) %>

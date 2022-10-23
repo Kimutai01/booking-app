@@ -23,4 +23,5 @@ class Traveller < ApplicationRecord
     self.user.booked = false
     self.user.save
   end
+
 end
