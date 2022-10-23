@@ -53,6 +53,7 @@ class TravellersController < ApplicationController
   # DELETE buses/1/travellers/1
   def destroy
     @traveller.destroy
+    
 
     redirect_to bus_travellers_url(@bus)
   end
