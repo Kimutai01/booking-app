@@ -1,0 +1,29 @@
+<h1>Listing travellers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Phone number</th>
+    <th>Bus</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @travellers.each do |traveller| %>
+  <tr>
+    <td><%= traveller.name %></td>
+    <td><%= traveller.phone_number %></td>
+    <td><%= traveller.bus %></td>
+    <td><%= traveller.user %></td>
+    <td><%= link_to 'Show', [traveller.bus, traveller] %></td>
+    <td><%= link_to 'Edit', edit_bus_traveller_path(traveller.bus, traveller) %></td>
+    <td><%= link_to 'Destroy', [traveller.bus, traveller], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Traveller', new_bus_traveller_path(params[:bus_id]) %>
