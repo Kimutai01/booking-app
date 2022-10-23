@@ -1,4 +1,5 @@
 <div id="<%= dom_id bus %>">
+<%= image_tag bus.photo, style: "width: 100px" %>
   <p>
     <strong>Registration:</strong>
     <%= bus.registration %>
@@ -7,11 +8,6 @@
   <p>
     <strong>Name:</strong>
     <%= bus.name %>
-  </p>
-
-  <p>
-    <strong>photo:</strong>
-    <%= bus.photo %>
   </p>
   <p>
     <strong>Capacity:</strong>
