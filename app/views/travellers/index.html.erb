@@ -7,17 +7,21 @@
     <th>Phone number</th>
     <th>Bus</th>
     <th>User</th>
-    <th></th>
+    <th>Number of seats</th>
     <th></th>
     <th></th>
   </tr>
 
+
 <% @travellers.each do |traveller| %>
+<%= traveller.bus.registration%>
   <tr>
     <td><%= traveller.name %></td>
     <td><%= traveller.phone_number %></td>
     <td><%= traveller.bus %></td>
     <td><%= traveller.user %></td>
+    <td><%= traveller.number_of_seats %></td>
+
     <td><%= link_to 'Show', [traveller.bus, traveller] %></td>
     <td><%= link_to 'Edit', edit_bus_traveller_path(traveller.bus, traveller) %></td>
     <td><%= link_to 'Destroy', [traveller.bus, traveller], method: :delete, data: { confirm: 'Are you sure?' } %></td>

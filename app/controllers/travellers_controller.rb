@@ -4,9 +4,16 @@ class TravellersController < ApplicationController
 
   # GET buses/1/travellers
   def index
-    @travellers = @bus.travellers.where(user_id: current_user.id)
-    @bus=Bus.find(params[:bus_id])
+    if current_user.email.include? "admin"
+      @travellers = @bus.travellers
+    else
+       @travellers = @bus.travellers.where(user_id: current_user.id)
+    end
   end
+
+  # def show_bookings
+  #   @travellers = Bus.where(user_id: current_user.id && traveller_id: current_user.id)
+  # end
 
   # GET buses/1/travellers/1
   def show
@@ -62,6 +69,6 @@ class TravellersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def traveller_params
-      params.require(:traveller).permit(:name, :phone_number, :bus_id, :user_id)
+      params.require(:traveller).permit(:name, :phone_number, :bus_id, :user_id, :number_of_seats)
     end
 end

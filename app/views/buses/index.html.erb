@@ -1,14 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Buses</h1>
+<h1 class='text-center'>Buses</h1>
 
-<div id="buses">
+<div class='buses-card'>
   <% @buses.each do |bus| %>
+  <div id="buses" class='card'>
     <%= render bus %>
     <p>
-      <%= link_to "Show this bus", bus %>
+      <%= link_to "Show travellers", bus_travellers_path(bus) %>
     </p>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New bus", new_bus_path %>
+
+<% if can? :create, Bus %>
+  <p>
+    <%= link_to "New bus", new_bus_path %>
+  </p>
+<% end %>
+
