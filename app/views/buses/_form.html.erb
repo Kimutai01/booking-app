@@ -1,0 +1,47 @@
+<%= form_with(model: bus) do |form| %>
+  <% if bus.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(bus.errors.count, "error") %> prohibited this bus from being saved:</h2>
+
+      <ul>
+        <% bus.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :registration, style: "display: block" %>
+    <%= form.text_field :registration %>
+  </div>
+
+  <div>
+    <%= form.label :capacity, style: "display: block" %>
+    <%= form.number_field :capacity %>
+  </div>
+
+  <div>
+    <%= form.label :from, style: "display: block" %>
+    <%= form.text_field :from %>
+  </div>
+
+  <div>
+    <%= form.label :to, style: "display: block" %>
+    <%= form.text_field :to %>
+  </div>
+
+  <div>
+    <%= form.label :departing_time, style: "display: block" %>
+    <%= form.time_field :departing_time %>
+  </div>
+
+  <div>
+    <%= form.label :date, style: "display: block" %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

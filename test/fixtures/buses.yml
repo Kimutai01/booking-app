@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  registration: MyString
+  capacity: 1
+  from: MyString
+  to: MyString
+  departing_time: 2022-10-23 10:13:01
+  date: 2022-10-23
+
+two:
+  registration: MyString
+  capacity: 1
+  from: MyString
+  to: MyString
+  departing_time: 2022-10-23 10:13:01
+  date: 2022-10-23
