@@ -1,4 +1,11 @@
-<h1 class='text-center'>My bookings</h1>
+<h1 class='text-center'>
+  <% if current_user.email.include? "admin" %>
+    all bookings
+  <% else %>
+    my bookings
+  <% end %>
+
+</h1>
 <% @travellers.each do |traveller| %>
 <div class="container py-3">
   <!-- Card Start -->
@@ -45,5 +52,7 @@
     You have booked a bus
   </p>
   <% else %>
-  <%= link_to 'book', new_bus_traveller_path(@bus), :class => "btn btn-primary" %>
+  <div class="d-flex justify-content-center">
+  <%= link_to current_user.email.include?("admin") ? "Book for client" : "Book a bus", new_bus_traveller_path(@bus), :class => "btn btn-primary" %>
+  </div>
   <% end %>

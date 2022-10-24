@@ -1,5 +1,6 @@
+
 <%= form_with(model: bus) do |form| %>
-  <% if bus.errors.any? %>
+<% if bus.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(bus.errors.count, "error") %> prohibited this bus from being saved:</h2>
 
@@ -10,47 +11,83 @@
       </ul>
     </div>
   <% end %>
+<div class="container mt-5 mb-5 d-flex justify-content-center">
+    <div class="card px-1 py-4 w-50">
+        <div class="card-body">
+            <h6 class="information mt-4">Enter details to add a bus</h6>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <%= form.text_field :registration, :class => "form-control", :placeholder => "Registration", :required => true %>
+    </div>
+                        
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                       
+                        <div class="input-group">  <%= form.text_field :name, :class => "form-control", :placeholder => "Name", :required => true %></div>
 
-  <div>
-    <%= form.label :registration, style: "display: block" %>
-    <%= form.text_field :registration %>
-  </div>
+                    </div>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
 
-  <div>
-    <%= form.label :photo, style: "display: block" %>
-    <%= form.file_field :photo %>
+                        <div class="input-group">  <%= form.file_field :photo, :class => "form-control", :placeholder => "Photo", :required => true %> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                       
+                        <div class="input-group">  <%= form.number_field :capacity, :class => "form-control", :placeholder => "Capacity", :required => true %> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
 
-  <div>
-    <%= form.label :capacity, style: "display: block" %>
-    <%= form.number_field :capacity %>
-  </div>
+                        <div class="input-group">  <%= form.text_field :from, :class => "form-control", :placeholder => "From", :required => true %> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
 
-  <div>
-    <%= form.label :from, style: "display: block" %>
-    <%= form.text_field :from %>
-  </div>
+                        <div class="input-group">  <%= form.text_field :to, :class => "form-control", :placeholder => "To", :required => true %> </div>
 
-  <div>
-    <%= form.label :to, style: "display: block" %>
-    <%= form.text_field :to %>
-  </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
 
-  <div>
-    <%= form.label :departing_time, style: "display: block" %>
-    <%= form.time_field :departing_time %>
-  </div>
+                        <div class="input-group">  <%= form.time_field :departing_time, :class => "form-control", :placeholder => "Departing Time", :required => true %> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
 
-  <div>
-    <%= form.label :date, style: "display: block" %>
-    <%= form.date_field :date %>
-  </div>
+                        <div class="input-group">  <%= form.date_field :date, :class => "form-control", :placeholder => "Date", :required => true %> </div>
+                    
+                    </div>
+                </div>
+            </div>
+                
+            <div class=" d-flex flex-column text-center px-5 mt-3 mb-3"> <%= form.submit "Add Bus", :class => "btn btn-primary btn-block" %> </div>
+        </div>
+    </div>
+</div>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+  <% end %>
+

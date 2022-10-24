@@ -1,6 +1,6 @@
 
 
-<div class="col">
+<div class="col my-3">
     <div class="card h-100">
       <%= image_tag bus.photo, :class => "card-img-top" %>
       <div class="card-body">
@@ -11,8 +11,15 @@
         <p class="card-text"><strong>To: </strong><%= bus.to %></p>
         <p class="card-text"><strong>Departing time: </strong><%= bus.departing_time.strftime("%H:%M %p") %></p>
         <p class="card-text"><strong>Departure date: </strong><%= bus.date %></p>
-        <p>
+        <p class="d-flex justify-content-between">
       <%= link_to "bookings", bus_travellers_path(bus), :class => "btn btn-primary" %>
+      <% if can? :create, Bus %>
+        <%= link_to "edit", edit_bus_path(bus), :class => "btn btn-primary" %>
+        <%= button_to "delete", bus, method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-danger" %>
+        </p>
+      <% end %>
+
+
       </div>
     </div>
   </div>

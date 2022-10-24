@@ -1,25 +1,42 @@
-<nav class="navbar navbar-expand-lg">
-  <div class="container-fluid ">
-    <a class="navbar-brand" href="#">Travelly</a>
+
+<nav class="navbar navbar-expand-lg bg-light ">
+  <div class="container-fluid justify-content-between">
+    <% if user_signed_in? %> 
+     <h2 class="navbar-brand text-light" > Hello <%= current_user.name %> </h2>
+    <% else %>
+      <h2 class="navbar-brand "> Not a member ? <h2>
+    <% end %>   
+
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to "Home", root_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Buses", buses_path, class: "nav-link" %>
-        </li>
-        <%= user_signed_in? ? (link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link") : (link_to "Sign in", new_user_session_path, class: "nav-link") %>
+      <% if user_signed_in? %>
+        
+             <li class="nav-item">
+               <%= link_to "Home", root_path, class: "nav-link text-light mx-5" %>
+            </li>
+        <% else %>
+           <li class="nav-item">
+              <%= link_to "Sign up" , new_user_registration_path , class: "btn btn-dark mx-4"%>
+            </li>
+            <li class="nav-item">
+               <%= link_to "Sign in" , new_user_session_path , class: "btn btn-dark"%>
+            </li>
+        <% end %>    
 
-        <% if user_signed_in? %>
-        <li class="nav-item">
-            <p class='nav-link'>Hello <%= current_user.name %></p>
-        </li>
-        <% end %>
-      </ul>
+
+        
+       </ul>
+       <% !if user_signed_in? %>
+      <form class="d-flex" role="search">
+          <%= link_to "Sign Out", destroy_user_session_path , class: "btn btn-dark" %>
+
+      </form>
+      <% end %>
+      
     </div>
   </div>
 </nav>

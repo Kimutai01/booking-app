@@ -26,8 +26,10 @@ class BusesController < ApplicationController
 
     respond_to do |format|
       if @bus.save
-        format.html { redirect_to bus_url(@bus), notice: "Bus was successfully created." }
+        format.html { redirect_to root_path, notice: "Bus was successfully created." }
         format.json { render :show, status: :created, location: @bus }
+
+
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @bus.errors, status: :unprocessable_entity }
