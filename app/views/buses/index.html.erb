@@ -8,10 +8,15 @@
   <% end %>
 </div>
 
-
 <% if can? :create, Bus %>
-  <p>
-    <%= link_to "New bus", new_bus_path %>
-  </p>
+ <%= link_to "new bus", new_bus_path, :class => "btn btn-secondary my-5" %>
 <% end %>
+
+
+
+
+
+
+
+
 

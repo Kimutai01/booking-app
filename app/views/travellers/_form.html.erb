@@ -1,5 +1,6 @@
+
 <%= form_for([@traveller.bus, @traveller]) do |f| %>
-  <% if @traveller.errors.any? %>
+ <% if @traveller.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@traveller.errors.count, "error") %> prohibited this traveller from being saved:</h2>
 
@@ -10,27 +11,35 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :phone_number %><br />
-    <%= f.number_field :phone_number %>
-  </div>
-  <div class="field">
-    <%= f.label :number_of_seats %><br />
-    <%= f.number_field :number_of_seats %>
-  <div class="field">
-    <%= f.label :bus %><br />
-    <%= f.text_field :bus %>
-  </div>
-  <div class="field">
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="container mt-5 mb-5 d-flex justify-content-center">
+    <div class="card px-1 py-4 w-50">
+        <div class="card-body">
+            <h6 class="information mt-4">Please provide your details to book</h6>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        
+    <%= f.text_field :name, :class => "form-control", :placeholder => "Name", :required => true %>
+    </div>
+                        
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group"> <%= f.number_field :phone_number, :class => "form-control", :placeholder => "Phone Number", :required => true %>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group"> <%= f.number_field :number_of_seats, :class => "form-control", :placeholder => "Number of Seats" , :required => true %> </div>
+                    </div>
+                </div>
+            </div>
+            <div class=" d-flex flex-column text-center px-5 mt-3 mb-3"> <small class="agree-text">By Booking this appointment you agree to the</small> <a href="#" class="terms">Terms & Conditions</a> </div> <%= f.submit "Book", :class => "btn btn-primary btn-block width-100" %> </div>
+        </div>
+    </div>
+</div>
 <% end %>
