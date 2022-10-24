@@ -15,7 +15,6 @@ gem 'nested_scaffold'
 
 gem 'cancancan'
 
-gem 'webpacker'
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
