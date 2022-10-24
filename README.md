@@ -10,7 +10,7 @@
 
 ![](https://img.shields.io/badge/Rails-black)&nbsp;&nbsp;&nbsp;![](https://img.shields.io/badge/Ruby-red)&nbsp;&nbsp;&nbsp;![](https://img.shields.io/badge/CSS-Yellow)
 
-[Live Demo Link](https://monumental-parfait-c238f8.netlify.app/)
+[Live Demo Link](https://quiet-mountain-19567.herokuapp.com/)
 
 ## Getting Started
 
