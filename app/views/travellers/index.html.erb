@@ -1,0 +1,58 @@
+<h1 class='text-center'>
+  <% if current_user.email.include? "admin" %>
+    all bookings
+  <% else %>
+    my bookings
+  <% end %>
+
+</h1>
+<% @travellers.each do |traveller| %>
+<div class="container py-3">
+  <!-- Card Start -->
+  <div class="card">
+    <div class="row ">
+
+      <div class="col-md-7 px-3">
+        <div class="card-block px-6">
+          <h4 class="card-title"><%= traveller.bus.name %></h4>
+          <p class="card-text">
+            <strong>Registration: </strong><%= traveller.bus.registration %>
+          </p>
+          <p class="card-text"> <strong>From: </strong><%= traveller.bus.from %></p>
+          <p class="card-text"> <strong>To: </strong><%= traveller.bus.to %></p>
+          <p class="card-text"> <strong>Departing time: </strong><%= traveller.bus.departing_time.strftime("%H:%M %p") %></p>
+          <p class="card-text"> <strong>Departure date: </strong><%= traveller.bus.date %></p>
+          <p class="card-text"> <% hours = (traveller.bus.departing_time.strftime("%H").to_i - Time.now.strftime("%H").to_i) %>
+            <strong>Time left: </strong><%= hours %> hours
+          </p>
+          <p class="card-text">  <strong>traveller name: </strong><%= traveller.name %></p>
+          <p class="card-text"> <strong>traveller phone number: </strong><%= traveller.phone_number %></p>
+         <%=button_to 'remove booking', [traveller.bus, traveller], method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+        </div>
+      </div>
+      <!--Side Image-->
+      <div class="col-md-5 my-5">
+        <%= image_tag traveller.bus.photo, :class => "img-fluid" %>
+        </div>
+    
+    </div>
+  </div>
+
+
+  
+
+
+  <!-- End of card -->
+
+</div>
+<% end %>
+
+ <% if current_user.booked %>
+  <p class="text-center">
+    You have booked a bus
+  </p>
+  <% else %>
+  <div class="d-flex justify-content-center">
+  <%= link_to current_user.email.include?("admin") ? "Book for client" : "Book a bus", new_bus_traveller_path(@bus), :class => "btn btn-primary" %>
+  </div>
+  <% end %>

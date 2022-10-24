@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class='text-center'>Buses</h1>
+
+<div class="row row-cols-1 row-cols-md-3 ">
+  <% @buses.each do |bus| %>
+    <%= render bus %>
+  <% end %>
+</div>
+<div class="d-flex justify-content-center">
+<% if can? :create, Bus %>
+ <%= link_to "new bus", new_bus_path, :class => "btn btn-success my-5" %>
+ </div>
+<% end %>
+
+
+
+
+
+
+
+
+

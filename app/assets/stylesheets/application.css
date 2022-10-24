@@ -1,15 +1,183 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,300&family=Hind+Siliguri:wght@300;400;500;600;700&family=Inconsolata:wght@200;300;400;500;700&family=Noto+Sans+Mono:wght@100;300;400;500;700&family=Secular+One&display=swap");
+
+/* font-family: 'Amatic SC', cursive;
+font-family: 'Cormorant', serif;
+font-family: 'Hind Siliguri', sans-serif;
+font-family: 'Inconsolata', monospace;
+font-family: 'Noto Sans Mono', monospace;
+font-family: 'Secular One', sans-serif; */
+
+body {
+  background: linear-gradient(to right, #faf7f0 0%, #f5f5f5 100%);
+  font-family: "Cormorant", serif !important;
+  font-size: 1.5rem !important;
+}
+
+.navbar {
+  background: linear-gradient(to right, #144261 0%, #197dc0 100%);
+  color: #fff;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 10%;
+  height: 2px;
+  background: #000;
+  margin-top: 10px;
+  margin: auto;
+}
+
+.account-block {
+  padding: 0;
+  background-image: url(https://media.istockphoto.com/photos/login-online-form-cyber-security-concept-image-picture-id1364159707?b=1&k=20&m=1364159707&s=170667a&w=0&h=Hh8Rs1MLmcAjBIyoXWt9BmOZT9VvpjVwa_JFLDVoPec=);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  position: relative;
+}
+.account-block .overlay {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.account-block .account-testimonial {
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  margin: 0 auto;
+  padding: 0 1.75rem;
+  bottom: 3rem;
+  left: 0;
+  right: 0;
+}
+
+.text-theme {
+  color: #5369f8 !important;
+}
+
+.btn-theme {
+  background-color: #5369f8;
+  border-color: #5369f8;
+  color: #fff;
+}
+
+body {
+  background-color: #eee;
+}
+.title {
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+
+.card-block {
+  font-size: 1em;
+  position: relative;
+  margin: 0;
+  padding: 1em;
+  border: none;
+  border-top: 1px solid rgba(34, 36, 38, 0.1);
+  box-shadow: none;
+  margin-left: 3rem;
+}
+.card {
+  font-size: 1em;
+  overflow: hidden;
+  padding: 5;
+  border: none;
+  border-radius: 0.28571429rem;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  margin-top: 20px;
+}
+
+.carousel-indicators li {
+  border-radius: 12px;
+  width: 12px;
+  height: 12px;
+  background-color: #404040;
+}
+.carousel-indicators li {
+  border-radius: 12px;
+  width: 12px;
+  height: 12px;
+  background-color: #404040;
+}
+.carousel-indicators .active {
+  background-color: white;
+  max-width: 12px;
+  margin: 0 3px;
+  height: 12px;
+}
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+.btn {
+  margin-top: auto;
+}
+/* .card {
+  width: 400px;
+  background-color: #fff;
+  border: none;
+  border-radius: 12px;
+} */
+label.radio {
+  cursor: pointer;
+  width: 100%;
+}
+label.radio input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+label.radio span {
+  padding: 7px 14px;
+  border: 2px solid #eee;
+  display: inline-block;
+  color: #039be5;
+  border-radius: 10px;
+  width: 100%;
+  height: 48px;
+  line-height: 27px;
+}
+label.radio input:checked + span {
+  border-color: #039be5;
+  background-color: #81d4fa;
+  color: #fff;
+  border-radius: 9px;
+  height: 48px;
+  line-height: 27px;
+}
+.form-control {
+  margin-top: 10px;
+  height: 48px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+}
+.form-control:focus {
+  box-shadow: none;
+  border: 2px solid #039be5;
+}
+.agree-text {
+  font-size: 12px;
+}
+.terms {
+  font-size: 12px;
+  text-decoration: none;
+  color: #039be5;
+}
+.confirm-button {
+  height: 50px;
+  border-radius: 10px;
+}

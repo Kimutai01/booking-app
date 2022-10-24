@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <b>Name:</b>
+  <%= @traveller.name %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%= @traveller.phone_number %>
+</p>
+
+<p>
+  <b>Number of seats:</b>
+  <%= @traveller.number_of_seats %>
+</p>
+
+<p>
+  <b>Bus:</b>
+  <%= @traveller.bus %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @traveller.user %>
+</p>
+
+
+<%= link_to 'Edit', edit_bus_traveller_path(@traveller.bus, @traveller) %> |
+<%= link_to 'Back', bus_travellers_path(@traveller.bus) %>
